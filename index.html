@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Recipe Nest - a recipe book and weekly meal planner">
+  <title>Recipe Nest</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header>
+    <h2 class="logo">🍳 Recipe Nest</h2>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#recipes">Recipes</a></li>
+        <li><a href="#planner">Meal Planner</a></li>
+        <li><a href="#add">Add Recipe</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ========== HOME ========== -->
+    <section id="home" class="hero">
+      <h1>Save Recipes. Plan Meals. Cook Happy.</h1>
+      <p>Your personal recipe book and weekly meal planner in one place.</p>
+      <a href="#recipes" class="btn">Browse Recipes</a>
+    </section>
+
+    <!-- ========== RECIPES ========== -->
+    <section id="recipes">
+      <h2>Our Recipes</h2>
+
+      <div class="search-bar">
+        <input type="text" id="search" placeholder="Search recipe..." onkeyup="filterRecipes()">
+        <select id="category" onchange="filterRecipes()">
+          <option value="all">All Categories</option>
+          <option value="Breakfast">Breakfast</option>
+          <option value="Lunch">Lunch</option>
+          <option value="Dinner">Dinner</option>
+          <option value="Dessert">Dessert</option>
+        </select>
+      </div>
+
+      <div class="grid" id="recipeList">
+
+        <article class="card" data-name="Masala Dosa" data-category="Breakfast">
+          <div class="picture">🥞</div>
+          <h3>Masala Dosa</h3>
+          <p class="tag">Breakfast</p>
+          <h4>Ingredients</h4>
+          <ul>
+            <li>Dosa batter</li>
+            <li>Boiled potatoes</li>
+            <li>Onion</li>
+          </ul>
+          <h4>Steps</h4>
+          <ol>
+            <li>Spread batter on a hot pan.</li>
+            <li>Add potato filling.</li>
+            <li>Fold and serve.</li>
+          </ol>
+        </article>
+
+        <article class="card" data-name="Veg Biryani" data-category="Lunch">
+          <div class="picture">🍛</div>
+          <h3>Veg Biryani</h3>
+          <p class="tag">Lunch</p>
+          <h4>Ingredients</h4>
+          <ul>
+            <li>Basmati rice</li>
+            <li>Mixed vegetables</li>
+            <li>Biryani masala</li>
+          </ul>
+          <h4>Steps</h4>
+          <ol>
+            <li>Boil the rice halfway.</li>
+            <li>Cook vegetables with masala.</li>
+            <li>Mix and cook on low flame.</li>
+          </ol>
+        </article>
+
+        <article class="card" data-name="Paneer Butter Masala" data-category="Dinner">
+          <div class="picture">🍲</div>
+          <h3>Paneer Butter Masala</h3>
+          <p class="tag">Dinner</p>
+          <h4>Ingredients</h4>
+          <ul>
+            <li>Paneer cubes</li>
+            <li>Tomato puree</li>
+            <li>Butter and cream</li>
+          </ul>
+          <h4>Steps</h4>
+          <ol>
+            <li>Heat butter and add tomato puree.</li>
+            <li>Add paneer and cream.</li>
+            <li>Simmer for 5 minutes.</li>
+          </ol>
+        </article>
+
+        <article class="card" data-name="Chocolate Brownie" data-category="Dessert">
+          <div class="picture">🍫</div>
+          <h3>Chocolate Brownie</h3>
+          <p class="tag">Dessert</p>
+          <h4>Ingredients</h4>
+          <ul>
+            <li>Flour and cocoa</li>
+            <li>Sugar and butter</li>
+            <li>Eggs</li>
+          </ul>
+          <h4>Steps</h4>
+          <ol>
+            <li>Mix all ingredients.</li>
+            <li>Pour into a tray.</li>
+            <li>Bake for 25 minutes.</li>
+          </ol>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ========== MEAL PLANNER ========== -->
+    <section id="planner">
+      <h2>Weekly Meal Planner</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Breakfast</th>
+            <th>Lunch</th>
+            <th>Dinner</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Monday</td><td>Masala Dosa</td><td>Veg Biryani</td><td>Paneer Butter Masala</td></tr>
+          <tr><td>Tuesday</td><td>Fruit Salad</td><td>Rajma Rice</td><td>Pasta</td></tr>
+          <tr><td>Wednesday</td><td>Masala Dosa</td><td>Veg Biryani</td><td>Paneer Butter Masala</td></tr>
+          <tr><td>Thursday</td><td>Poha</td><td>Dal Rice</td><td>Pasta</td></tr>
+          <tr><td>Friday</td><td>Masala Dosa</td><td>Veg Biryani</td><td>Paneer Butter Masala</td></tr>
+          <tr><td>Saturday</td><td>Sandwich</td><td>Chole Bhature</td><td>Pizza</td></tr>
+          <tr><td>Sunday</td><td>Paratha</td><td>Veg Biryani</td><td>Chocolate Brownie</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ========== ADD RECIPE (FORM) ========== -->
+    <section id="add">
+      <h2>Add a New Recipe</h2>
+      <form onsubmit="return addRecipe()">
+
+        <label for="title">Recipe Name</label>
+        <input type="text" id="title" placeholder="e.g. Veg Pulao" required>
+
+        <label for="type">Category</label>
+        <select id="type" required>
+          <option value="Breakfast">Breakfast</option>
+          <option value="Lunch">Lunch</option>
+          <option value="Dinner">Dinner</option>
+          <option value="Dessert">Dessert</option>
+        </select>
+
+        <label for="ingredients">Ingredients</label>
+        <textarea id="ingredients" rows="3" required></textarea>
+
+        <button type="submit" class="btn">Save Recipe</button>
+        <p id="message"></p>
+      </form>
+    </section>
+
+    <!-- ========== CONTACT ========== -->
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>Email: hello@recipenest.com | Phone: 98765 43210</p>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <p>&copy; 2026 Recipe Nest | CSE326 Project</p>
+  </footer>
+
+</body>
+</html>
